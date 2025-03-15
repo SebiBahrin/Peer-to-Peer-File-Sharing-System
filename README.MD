@@ -24,6 +24,7 @@ Download Thread:
 Requests missing segments from other peers and writes the complete file to disk once all segments are received.
 Upload Thread:
 Listens for incoming segment requests from other peers and sends the appropriate segment if available.
+
 Project Flow Summary
 ------
 Initialization:
@@ -40,6 +41,7 @@ Simultaneously, the upload thread listens for segment requests from other peers 
 
 Completion:
 Once a file is fully downloaded, the peer notifies the tracker, writes the file to disk, and finally informs the tracker when all files are downloaded. The tracker then signals all peers to shut down upload threads.
+
 Code Structure
 ------
 Main Function:
@@ -90,11 +92,6 @@ Make sure that the construct_input_path function is uncommented and the checker_
 
 To run the checker:
 Ensure that the checker_input_path function is uncommented and the construct_input_path function is commented out.
-
-Compilation
-After setting the appropriate function, compile the project by running:
-
-This will build the executable (e.g., tema2).
 
 Running the Application
 Normal Execution:
