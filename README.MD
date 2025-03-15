@@ -1,8 +1,9 @@
 Peer-to-Peer File Sharing System
-
+-----
 This project is an MPI-based peer-to-peer file sharing system that demonstrates how distributed processes can collaborate to share file segments over a network. The system comprises a tracker process that manages file swarms (lists of peers and seeds) and multiple peer processes that both upload and download file segments concurrently.
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 Overview
+------
 The project implements a simplified file sharing protocol with the following components:
 
 1.Tracker:
@@ -23,8 +24,8 @@ Download Thread:
 Requests missing segments from other peers and writes the complete file to disk once all segments are received.
 Upload Thread:
 Listens for incoming segment requests from other peers and sends the appropriate segment if available.
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Project Flow Summary
+------
 Initialization:
 MPI is initialized with multi-threading support. The tracker and peers are identified based on their rank.
 
@@ -39,8 +40,8 @@ Simultaneously, the upload thread listens for segment requests from other peers 
 
 Completion:
 Once a file is fully downloaded, the peer notifies the tracker, writes the file to disk, and finally informs the tracker when all files are downloaded. The tracker then signals all peers to shut down upload threads.
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Code Structure
+------
 Main Function:
 Initializes MPI with support for multi-threading. It checks the process rank: if the rank corresponds to the tracker, it runs the tracker function; otherwise, it starts as a peer.
 
@@ -73,8 +74,8 @@ Sends a NACK if the segment is not available.
 Exits upon receiving a shutdown signal (END).
 Helper Function (request_file_owners):
 This function contacts the tracker to obtain the swarm information (i.e., the list of peers owning segments) for a given file, and initializes a download structure with the default segment values and owner list.
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Compilation and Execution
+------
 In the file tema2.c, locate the following lines in the peer function:
 
     //Pt testare manuala
