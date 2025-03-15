@@ -1,4 +1,5 @@
 Peer-to-Peer File Sharing System
+
 This project is an MPI-based peer-to-peer file sharing system that demonstrates how distributed processes can collaborate to share file segments over a network. The system comprises a tracker process that manages file swarms (lists of peers and seeds) and multiple peer processes that both upload and download file segments concurrently.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Overview
